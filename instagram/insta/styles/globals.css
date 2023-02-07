@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .navBar {
+        @apply hidden h-6 md:inline-flex cursor-pointer 
+        hover:scale-125 transition-all durantion-150 ease-out;
+    }
+}
