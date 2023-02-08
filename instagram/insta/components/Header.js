@@ -1,302 +1,138 @@
 import Image from "next/image";
 import React from "react";
-import {
-    SearchIcon,
-    PlusCircleIcon,
-    UserGroupIcon,
-    HeartIcon,
-    PaperAirplaneIcon,
-    MenuIcon,
-} from "@heroicons/react/outline";
-// import { HomeIcon } from "@heroicons/react/solid";
+import { useState } from "react";
+import { HomeIcon } from "@heroicons/react/solid";
 
 export default function Header() {
-    return (
-        // <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
-        //     <div class="container flex flex-wrap items-center justify-between mx-auto">
-        //         <a href="https://flowbite.com/" class="flex items-center">
-        //             <img
-        //                 src="https://flowbite.com/docs/images/logo.svg"
-        //                 class="h-6 mr-3 sm:h-9"
-        //                 alt="Flowbite Logo"
-        //             />
-        //             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-        //                 Network
-        //             </span>
-        //         </a>
-        //         <div class="flex md:order-1">
-        //             <div class="relative hidden md:block">
-        //                 <input
-        //                     type="text"
-        //                     id="search-navbar"
-        //                     class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-400 rounded-lg bg-gray-50
-        //                         focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-        //                         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        //                     placeholder="Search..."
-        //                 />
-        //             </div>
-        //         </div>
-        //         <div
-        //             class="items-center justify-between w-full md:flex md:w-auto md:order-2"
-        //             id="navbar-search">
-        //             <ul
-        //                 class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg
-        //             bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0
-        //             md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        //                 <li>
-        //                     <a
-        //                         href="#"
-        //                         class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-        //                         aria-current="page">
-        //                         Home
-        //                     </a>
-        //                 </li>
-        //                 <li>
-        //                     <a
-        //                         href="#"
-        //                         class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-        //                         Video
-        //                     </a>
-        //                 </li>
-        //                 <li>
-        //                     <a
-        //                         href="#"
-        //                         class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-        //                         Notifications
-        //                     </a>
-        //                 </li>
-        //                 <li>
-        //                     <a
-        //                         href="#"
-        //                         class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-        //                         Messages
-        //                     </a>
-        //                 </li>
-        //             </ul>
-        //         </div>
-        //     </div>
-        // </nav>
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const handleImageLoad = () => setImageLoaded(!imageLoaded);
 
-        <nav class="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-            <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="#" class="flex items-center">
+    const [isOpen, setIsopen] = useState(false);
+
+    // atribuir string a src
+    const src = "perfil.PNG";
+    return (
+        <nav className="bg-gray-800">
+            <div className="flex items-center justify-between p-2 mx-20">
+                <div className="flex items-center  p-1">
                     <img
                         src="https://flowbite.com/docs/images/logo.svg"
-                        class="h-6 mr-3 sm:h-10"
+                        className="h-6 mr-3 sm:h-9"
                         alt="Flowbite Logo"
                     />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                        Flowbite
-                    </span>
-                </a>
-                <button
-                    data-collapse-toggle="navbar-multi-level"
-                    type="button"
-                    class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-multi-level"
-                    aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg
-                        class="w-6 h-6"
-                        aria-hidden="true"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            fill-rule="evenodd"
-                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-                <div
-                    class="hidden w-full md:block md:w-auto"
-                    id="navbar-multi-level">
-                    <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a
-                                href="#"
-                                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
-                                aria-current="page">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <button
-                                id="dropdownNavbarLink"
-                                data-dropdown-toggle="dropdownNavbar"
-                                class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                                Dropdown{" "}
-                                <svg
-                                    class="w-4 h-4 ml-1"
-                                    aria-hidden="true"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </button>
+                    <h1 className="text-white font-semibold text-lg">
+                        Network
+                    </h1>
+                </div>
 
-                            <div
-                                id="dropdownNavbar"
-                                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul
-                                    class="py-2 text-sm text-gray-700 dark:text-gray-400"
-                                    aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li aria-labelledby="dropdownNavbarLink">
-                                        <button
-                                            id="doubleDropdownButton"
-                                            data-dropdown-toggle="doubleDropdown"
-                                            data-dropdown-placement="right-start"
-                                            type="button"
-                                            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            Dropdown
-                                            <svg
-                                                aria-hidden="true"
-                                                class="w-5 h-5"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </button>
-                                        <div
-                                            id="doubleDropdown"
-                                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul
-                                                class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                                aria-labelledby="doubleDropdownButton">
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
-                                                        Overview
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
-                                                        My downloads
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
-                                                        Billing
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
-                                                        Rewards
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            Earnings
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="py-1">
-                                    <a
-                                        href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
-                                        Sign out
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
+                <form className="w-5/12  relative flex items-center ">
+                    <input
+                        type="text"
+                        placeholder="Pesquisar"
+                        className="w-full px-5 bg-gray-700 rounded-full text-white"
+                    />
+                    <div className="absolute pointer-events-none right-5">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-6 h-6 text-white">
+                            <path
+                                fillRule="evenodd"
+                                d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                    </div>
+                </form>
+
+                <div className="flex p-1">
+                    <a
+                        href="/"
+                        className="px-4 py-2  text-white hover:bg-gray-700 rounded-lg transition-transform duration-500 hover:scale-110">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-6 h-6">
+                            <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                            <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="#"
+                        className="px-4 py-2 text-white hover:bg-gray-700 rounded-lg transition-transform duration-500 hover:scale-110">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-6 h-7">
+                            <path d="M4.5 4.5a3 3 0 00-3 3v9a3 3 0 003 3h8.25a3 3 0 003-3v-9a3 3 0 00-3-3H4.5zM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="#"
+                        className="px-4 py-2 text-white hover:bg-gray-700 rounded-lg transition-transform duration-500 hover:scale-110">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-6 h-7">
+                            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="#"
+                        className="px-4 py-2 text-white hover:bg-gray-700 rounded-lg transition-transform duration-500 hover:scale-110">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-6 h-7">
+                            <path
+                                fillRule="evenodd"
+                                d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 001.28.53l4.184-4.183a.39.39 0 01.266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0012 2.25zM8.25 8.625a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zm2.625 1.125a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="#"
+                        onClick={() => setIsopen((prev) => !prev)}
+                        className="px-4 py-1 transition-transform duration-500 hover:scale-125">
+                        {src && (
+                            <img
+                                className="h-9 rounded-full"
+                                src={src}
+                                onLoad={handleImageLoad}
+                            />
+                        )}
+                    </a>
                 </div>
             </div>
+
+            {isOpen && (
+                <div
+                    className="z-10 text-gray-200 dark:divide-gray-600 dark:bg-gray-700 absolute right-10 rounded-lg mt-0 
+                                shadow w-44 ">
+                    <div className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:rounded-lg  border-b-2 border-slate-800">
+                        <h4>Monkey D. Luffy</h4>
+                        <h4>Monkey@gmail.com</h4>
+                    </div>
+                    <div className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:rounded-lg">
+                        <h4>Profile</h4>
+                    </div>
+                    <div className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:rounded-lg">
+                        <h4>Amigos Chegados</h4>
+                    </div>
+                    <div className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:rounded-lg border-b-2 border-slate-800 ">
+                        <h4>Guadados</h4>
+                    </div>
+                    <div className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:rounded-lg">
+                        <h4>Sign out</h4>
+                    </div>
+                </div>
+            )}
         </nav>
-
-        // <nav className="flex items-center justify-between p-4 bg-gray-800">
-        //     <div className="flex items-center">
-        //         <img
-        //             src="https://flowbite.com/docs/images/logo.svg"
-        //             class="h-6 mr-3 sm:h-9"
-        //             alt="Flowbite Logo"
-        //         />
-        //         <h1 className="text-white font-medium">Network</h1>
-        //     </div>
-
-        //     <form className="w-64 mx-auto">
-        //         <input
-        //             type="text"
-        //             placeholder="Pesquisar"
-        //             className="w-full p-2 bg-gray-700 rounded-full text-white"
-        //         />
-        //     </form>
-
-        //     <div className="flex">
-        //         <a
-        //             href="#"
-        //             className="px-4 py-2 text-white hover:bg-gray-700 rounded">
-        //             <i className="fas fa-home"></i>
-        //         </a>
-        //         <a
-        //             href="#"
-        //             className="px-4 py-2 text-white hover:bg-gray-700 rounded">
-        //             <i className="fas fa-video"></i>
-        //         </a>
-        //         <a
-        //             href="#"
-        //             className="px-4 py-2 text-white hover:bg-gray-700 rounded">
-        //             <i className="fas fa-bell"></i>
-        //         </a>
-        //         <a
-        //             href="#"
-        //             className="px-4 py-2 text-white hover:bg-gray-700 rounded">
-        //             <i className="fas fa-envelope"></i>
-        //         </a>
-        //         <a
-        //             href="#"
-        //             className="px-4 py-2 text-white hover:bg-gray-700 rounded">
-        //             <i className="fas fa-user"></i>
-        //         </a>
-        //     </div>
-        // </nav>
     );
 }
