@@ -2,18 +2,18 @@ import React from "react";
 
 export default function Home_profile() {
     return (
-        <div className="col-span-3 bg-slate-200 rounded-lg">
+        <div className="col-span-2 bg-slate-200 rounded-lg">
             <div>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 mt-2 ml-2">
+                    className="w-6 h-6 mt-2 ml-2">
                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M6 18L18 6M6 6l12 12"
                     />
                 </svg>

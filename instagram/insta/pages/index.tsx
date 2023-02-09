@@ -13,8 +13,8 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/perfil.png" />
             </Head>
             <Header />
-            
-            
+
+            <div className="grid grid-cols-12 gap-2 m-2">
                 <Home_profile />
                 <Feed />
                 <RightColumn />
